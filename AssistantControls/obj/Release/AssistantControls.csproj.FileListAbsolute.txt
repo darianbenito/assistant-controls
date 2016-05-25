@@ -1,0 +1,29 @@
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\bin\Release\AssistantControls.dll
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\bin\Release\AssistantControls.pdb
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\obj\Release\AssistantControls.dll
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\obj\Release\AssistantControls.pdb
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\obj\Release\AssistantControls.csprojResolveAssemblyReference.cache
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\bin\Release\AssistantControls.XML
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\bin\Release\DocumentFormat.OpenXml.dll
+C:\Users\Darian\Documents\Visual Studio 2012\Projects\AssistantControls\AssistantControls\bin\Release\WindowsBase.dll
+C:\Users\darian\workspace\assistant-controls\AssistantControls\obj\Release\AssistantControls.csprojResolveAssemblyReference.cache
+C:\Users\darian\workspace\assistant-controls\AssistantControls\bin\Release\AssistantControls.XML
+C:\Users\darian\workspace\assistant-controls\AssistantControls\bin\Release\AssistantControls.dll
+C:\Users\darian\workspace\assistant-controls\AssistantControls\bin\Release\AssistantControls.pdb
+C:\Users\darian\workspace\assistant-controls\AssistantControls\bin\Release\DocumentFormat.OpenXml.dll
+C:\Users\darian\workspace\assistant-controls\AssistantControls\bin\Release\WindowsBase.dll
+C:\Users\darian\workspace\assistant-controls\AssistantControls\obj\Release\AssistantControls.dll
+C:\Users\darian\workspace\assistant-controls\AssistantControls\obj\Release\AssistantControls.pdb
+C:\SVN\AssistantControls\AssistantControls\bin\Release\AssistantControls.XML
+C:\SVN\AssistantControls\AssistantControls\bin\Release\AssistantControls.dll
+C:\SVN\AssistantControls\AssistantControls\bin\Release\AssistantControls.pdb
+C:\SVN\AssistantControls\AssistantControls\bin\Release\WindowsBase.dll
+C:\SVN\AssistantControls\AssistantControls\obj\Release\AssistantControls.csprojResolveAssemblyReference.cache
+C:\SVN\AssistantControls\AssistantControls\obj\Release\AssistantControls.dll
+C:\SVN\AssistantControls\AssistantControls\obj\Release\AssistantControls.pdb
+C:\SVN\_UtilityLibraryNET\trunk\AssistantControls\AssistantControls\bin\Release\AssistantControls.XML
+C:\SVN\_UtilityLibraryNET\trunk\AssistantControls\AssistantControls\bin\Release\AssistantControls.dll
+C:\SVN\_UtilityLibraryNET\trunk\AssistantControls\AssistantControls\bin\Release\AssistantControls.pdb
+C:\SVN\_UtilityLibraryNET\trunk\AssistantControls\AssistantControls\obj\Release\AssistantControls.csprojResolveAssemblyReference.cache
+C:\SVN\_UtilityLibraryNET\trunk\AssistantControls\AssistantControls\obj\Release\AssistantControls.dll
+C:\SVN\_UtilityLibraryNET\trunk\AssistantControls\AssistantControls\obj\Release\AssistantControls.pdb

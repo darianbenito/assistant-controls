@@ -1,0 +1,4 @@
+C:\Users\Darian\documents\visual studio 2012\Projects\AssistantControls\AssistantControls\bin\Debug\AssistantControls.dll
+C:\Users\Darian\documents\visual studio 2012\Projects\AssistantControls\AssistantControls\bin\Debug\AssistantControls.pdb
+C:\Users\Darian\documents\visual studio 2012\Projects\AssistantControls\AssistantControls\obj\Debug\AssistantControls.dll
+C:\Users\Darian\documents\visual studio 2012\Projects\AssistantControls\AssistantControls\obj\Debug\AssistantControls.pdb

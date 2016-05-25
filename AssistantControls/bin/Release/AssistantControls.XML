@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AssistantControls</name>
+    </assembly>
+    <members>
+        <member name="T:AssistantControls.CompositeDataBoundControlAssistant">
+            <summary>
+            Asistente para la interacción con elementos de la clase System.Web.UI.WebControls.CompositeDataBoundControl.
+            System.Object 
+                System.Web.UI.WebControls.CompositeDataBoundControl
+                    System.Web.UI.WebControls.DetailsView
+                    System.Web.UI.WebControls.FormView
+                    System.Web.UI.WebControls.GridView(*)
+                    
+            (*) Implementado.
+            </summary>
+        </member>
+        <member name="T:AssistantControls.Utils.IExportableControl">
+            <summary>
+            Interface para cumplimiento de exportación de controles a diferentes formatos binarios.
+            </summary>
+        </member>
+        <member name="M:AssistantControls.Utils.IExportableControl.CreateExcelFile(System.Web.UI.WebControls.CompositeDataBoundControl,System.String,System.Web.HttpResponse)">
+            <summary>
+            cumplimiento de exportación a formato Xls de un CompositeDataBoundControl.
+            </summary>
+        </member>
+        <member name="T:AssistantControls.DataSetComponentAssistant">
+            <summary>
+            Asistente para la interacción con elementos de la clase System.Data.DataSet.
+            </summary>
+        </member>
+        <member name="T:AssistantControls.MarshalByValueComponentAssistant">
+            <summary>
+            Asistente para la interacción con elementos de la clase System.ComponentModel.MarshalByValueComponent.
+            System.Object 
+                System.ComponentModel.MarshalByValueComponent
+                    System.Data.DataColumn
+                    System.Data.DataSet(*)
+                    System.Data.DataTable
+                    System.Data.DataView
+                    System.Data.DataViewManager
+                    System.Web.Services.WebService
+            
+            (*) Implementado.
+            </summary>
+        </member>
+        <member name="T:AssistantControls.Utils.IExportableComponent">
+            <summary>
+            Interface para cumplimiento de exportación de componente a diferentes formatos binarios.
+            </summary>
+        </member>
+        <member name="M:AssistantControls.Utils.IExportableComponent.CreateExcelFile(System.Data.DataSet,System.String,System.Web.HttpResponse)">
+            <summary>
+            cumplimiento de exportación a formato Xls de un DataSet.
+            </summary>
+        </member>
+        <member name="M:AssistantControls.Utils.IExportableComponent.CreateExcelFile(System.Data.DataTable,System.String,System.Web.HttpResponse)">
+            <summary>
+            cumplimiento de exportación a formato Xls de un DataTable.
+            </summary>
+        </member>
+        <member name="M:AssistantControls.DataSetComponentAssistant.GetData(System.String,System.String)">
+            <summary>
+            Crea DataSet con la información recibida de la ejecución de la query solicitada.
+            </summary>
+            <param name="connectionString">Cadena que especifica la información para conectarse a una base de datos determinada.</param>
+            <param name="queryString">Query SQL SERVER.</param>
+            <example> El siguiente ejemplo carga un GridView con la salida de la ejecución de la query solicitada.
+                    <code>
+                       string connectionString = "Data Source=localhost;Initial Catalog=MyDB;user id=user;password=pass;";
+                       
+                       String queryString = "SELECT p.id, gp.team_name FROM teams ";
+                                              
+                       DataSet content = AssistantControls.DataSetComponentAssistant.GetData(connectionString, queryString);
+                       
+                       GridView listTeams = new GridView();
+                       listTeams.DataSource = content;
+                       listTeams.DataBind();
+                    </code>
+            </example>
+            <returns>Retorna un DataSet cargado con la query recibida por parametro.
+                     Retornará un DataSet vacío en caso de que ocurra algún tipo de excepción.
+            </returns>
+        </member>
+        <member name="M:AssistantControls.DataSetComponentAssistant.GetData(System.String,System.String,System.Collections.Hashtable)">
+             <summary>
+             Crea DataSet con la información recibida de la ejecución del Stored Procedure solicitado.
+             </summary>
+             <param name="connectionString">Cadena que especifica la información para conectarse a una base de datos determinada.</param>
+             <param name="storedProcedureName">Nombre de un storedProcedure presente en la base de datos indicada en el parámetro connectionString.</param>
+             <param name="parameters">Parámetros de Stored Procedure, HashTable con key como nombre del parámetro en el Stored Procedure y valor del mismo.</param>
+             <example> El siguiente ejemplo carga un GridView con la salida del Stored Procedure solicitado.
+                     <code>
+                        string connectionString = "Data Source=localhost;Initial Catalog=MyDB;user id=user;password=pass;";
+                        
+                        string storedProcedureName = "dbo.mySP";
+                        
+                        Hashtable parameters = new Hashtable();
+            
+                        parameters.Add("from", "2014-01-01 00:00:00");
+                        parameters.Add("to", "2015-01-01 00:00:00");
+                        parameters.Add("Team", "Team1");
+                                     
+                        DataSet content = AssistantControls.DataSetComponentAssistant.GetData(connectionString, storedProcedureName, parameters);
+                        
+                        GridView listTeams = new GridView();
+                        listTeams.DataSource = content;
+                        listTeams.DataBind();
+                     </code>
+             </example>
+             <returns>Retorna un DataSet cargado con la información recibida de la ejecución del Stored Procedure solicitado, 
+                      con los parámetros recibidos.
+                      Retornará un DataSet vacío en caso de que ocurra algún tipo de excepción.
+             </returns>
+        </member>
+        <member name="M:AssistantControls.DataSetComponentAssistant.CreateExcelFile(System.Data.DataSet,System.String,System.Web.HttpResponse)">
+            <summary>
+            Crea un archivo Excel en base a todos los DataTable del DataSet enviado, en la ruta solicitada.
+            </summary>
+            <param name="ds">DataSet desde donde se van a obtener los datos a guardar en el archivo Excel.</param>
+            <param name="excelFileName">Ruta destino del Excel generado.</param>
+            <example> El siguiente ejemplo guarda en C:\\Sample.xlsx la información del DataSet ds(Todas sus tablas).
+                    <code>
+                       DataSet ds = CreateSampleData();
+                       CreateExcelFile.CreateExcelFile(ds, "C:\\Sample.xlsx");
+                    </code>
+            </example>
+        </member>
+        <member name="M:AssistantControls.DataSetComponentAssistant.CreateExcelFile(System.Data.DataTable,System.String,System.Web.HttpResponse)">
+            <summary>
+            Crea un archivo Excel en base a todos del DataTable enviado, en la ruta solicitada.
+            </summary>
+            <param name="dt">DataTable desde donde se van a obtener los datos a guardar en el archivo Excel.</param>
+            <param name="excelFileName">Ruta destino del Excel generado.</param>
+            <example> El siguiente ejemplo guarda en C:\\Sample.xlsx la información de la primer tabla de un DataSet.
+                    <code>
+                       DataTable dt = ds.Tables[0].Copy(); // Importante no hacer DataTable dt = ds.Tables[0]
+                       DataSetComponentAssistant assistant = new DataSetComponentAssistant();
+                       assistant.CreateExcelFile(dt, "C:\\SVN\\XMLXDHOYTS\\Sample.xlsx");
+                    </code>
+            </example>
+        </member>
+        <member name="T:AssistantControls.GridViewControlAssistant">
+            <summary>
+            Asistente para la interacción con elementos de la clase System.Web.UI.WebControls.GridView.
+            </summary>
+        </member>
+        <member name="T:AssistantControls.ListControlAssistant">
+            <summary>
+            Asistente para la interacción con elementos de la clase System.Web.UI.WebControls.ListControl.
+            </summary>
+        </member>
+        <member name="M:AssistantControls.ListControlAssistant.LoadListItems(System.String,System.Char)">
+            <summary>
+            Crea arreglo de elementos para la posterior carga de un ListControl.
+            </summary>
+            <param name="items">Cadena de caracteres contenedora de los elementos, separados por un delimitador, a cargar.</param>
+            <param name="delimiter">Delimitador por el cual se encuentran separados los elementos a cargar.</param>
+            <example> El siguiente ejemplo muestra la carga de los elementos de un DropDownList.
+                    <code>
+                       DropDownList teamsList = new DropDownList();      
+                       string teams = "Team1;Team2;Team3";
+                       char delimiter = ';';
+                       teamsList.DataSource = AssistantControls.ListControlAssistant.LoadListItems(teams, delimiter);
+                       teamsList.DataTextField = "Text";
+                       teamsList.DataValueField = "Value";
+                       teamsList.DataBind();
+                    </code>
+            </example>
+            <returns>Retorna los elementos para la carga de un ListControl, en base a los valores que 
+                     se encuentren, separados por el deliminador(deliminer), en la cadena de caracteres items.
+                     Retornará un arreglo vacío en caso de que items no contenga elementos o ocurra algún tipo de excepción.
+            </returns>
+        </member>
+        <member name="M:AssistantControls.ListControlAssistant.LoadListItems(System.String,System.Char,System.Char)">
+            <summary>
+            Crea arreglo de elementos para la posterior carga de un ListControl.
+            </summary>
+            <param name="items">Cadena de caracteres contenedora de los elementos, separados por un delimitador y a su vez, a cargar.</param>
+            <param name="delimiterOne">Delimitador por el cual se encuentran separados los elementos a cargar.</param>
+            <param name="delimiterTwo">Delimitador por el cual se encuentra dividido cada elemento(text_delimitador_value).</param>
+            <example> El siguiente ejemplo muestra la carga de los elementos de un DropDownList.
+                    <code>
+                       DropDownList teamsList = new DropDownList();
+                       string teams = "All Teams|-1;Team1|001;Team2|002;Team3|003";
+                       char delimiterOne = ';';
+                       char delimiterTwo = '|';
+                       teamsList.DataSource = AssistantControls.ListControlAssistant.LoadListItems(teams, delimiterOne, delimiterTwo);
+                       teamsList.DataTextField = "Text";
+                       teamsList.DataValueField = "Value";
+                       teamsList.DataBind();
+                    </code>
+            </example>
+            <returns>Retorna los elementos para la carga de un ListControl, en base a los valores que 
+                     se encuentren, separados por el deliminador uno(deliminerOne), en la cadena de caracteres items. 
+                     A su vez, cada uno de estos valores deberán estar divididos en dos partes por el delimitador dos(delimiterTwo),
+                     la primera parte será asignada al campo text del LisItem correspondiente, miesntras que la segunda será 
+                     asignada al campo value.
+                     Retornará un arreglo vacío en caso de que items no contenga elementos o ocurra algún tipo de excepción.
+            </returns>
+        </member>
+        <member name="M:AssistantControls.ListControlAssistant.CreateExcelFile(System.Web.UI.WebControls.ListControl,System.Web.HttpResponse)">
+            <summary>
+            Crea un archivo Excel en base a todos los elementos del ListControl enviado, en la ruta solicitada.
+            </summary>
+            <param name="listControl">ListControl desde donde se van a obtener los datos a guardar en el archivo Excel.</param>
+            <param name="excelFileName">Ruta destino del Excel generado.</param>
+            <example> El siguiente ejemplo guarda en C:\\Sample.xlsx la información del DataSet ds(Todas sus tablas).
+                    <code>
+                       ListControl listControl = CreateSampleData();
+                       CreateExcelFile.CreateExcelFile(listControl, "C:\\Sample.xlsx");
+                    </code>
+            </example>
+        </member>
+        <member name="T:AssistantControls.WebControlAssistant">
+            <summary>
+            Asistente para la interacción con elementos de la clase System.Web.UI.WebControls.WebControl.
+            System.Object
+               System.Web.UI.Control
+                   System.Web.UI.WebControls.WebControl
+                         System.Web.UI.ScriptControl
+                         System.Web.UI.WebControls.BaseDataBoundControl
+                         System.Web.UI.WebControls.BaseDataList
+                         System.Web.UI.WebControls.Button
+                         System.Web.UI.WebControls.Calendar
+                         System.Web.UI.WebControls.CheckBox
+                         System.Web.UI.WebControls.CompositeControl
+                         System.Web.UI.WebControls.DataListItem
+                         System.Web.UI.WebControls.FileUpload
+                         System.Web.UI.WebControls.HyperLink
+                         System.Web.UI.WebControls.Image
+                         System.Web.UI.WebControls.Label
+                         System.Web.UI.WebControls.LinkButton
+                         System.Web.UI.WebControls.LoginName
+                         System.Web.UI.WebControls.Panel
+                         System.Web.UI.WebControls.SiteMapNodeItem
+                         System.Web.UI.WebControls.Table
+                         System.Web.UI.WebControls.TableCell
+                         System.Web.UI.WebControls.TableRow
+                         System.Web.UI.WebControls.TextBox
+                         System.Web.UI.WebControls.ValidationSummary       
+            </summary>
+        </member>
+    </members>
+</doc>
